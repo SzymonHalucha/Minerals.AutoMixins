@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <LangVersion>12</LangVersion>
+        <Nullable>enable</Nullable>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <RootNamespace>Minerals.AutoMixins</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Version>0.1.0</Version>
+        <Title>AutoMixins</Title>
+        <Authors>Szymon Hałucha</Authors>
+        <Product>AutoMixins</Product>
+        <Description>Package for automatic mixin design pattern generation using incremental generator</Description>
+        <Copyright>Copyright © Szymon Hałucha 2024</Copyright>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Minerals.AutoMixins</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/SzymonHalucha/Minerals.AutoMixins</PackageProjectUrl>
+        <PackageTags>mixin, design, pattern, generator, source, code, generation, attribute</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReleaseNotes>First Release</PackageReleaseNotes>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RepositoryUrl>https://github.com/SzymonHalucha/Minerals.AutoMixins</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <RepositoryBranch>v$(Version)</RepositoryBranch>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="" />
+        <None Include="..\LICENSE" Pack="true" PackagePath="" />
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis" Version="4.*" PrivateAssets="all" />
+        <PackageReference Update="NETStandard.Library" PrivateAssets="all" />
+    </ItemGroup>
+
+</Project>

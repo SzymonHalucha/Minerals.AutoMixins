@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net6.0;net481</TargetFrameworks>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <LangVersion>12</LangVersion>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Minerals.AutoMixins\Minerals.AutoMixins.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis" Version="4.*" />
+        <PackageReference Include="Verify" Version="23.*" />
+        <PackageReference Include="Verify.MSTest" Version="23.*" />
+        <PackageReference Include="Verify.SourceGenerators" Version="2.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector" Version="6.*" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.*" />
+        <PackageReference Include="MSTest.TestAdapter" Version="3.*" />
+        <PackageReference Include="MSTest.TestFramework" Version="3.*" />
+    </ItemGroup>
+
+</Project>
