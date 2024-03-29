@@ -30,7 +30,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <RepositoryUrl>https://github.com/SzymonHalucha/Minerals.AutoMixins</RepositoryUrl>
+        <RepositoryUrl>https://github.com/SzymonHalucha/Minerals.AutoMixins.git</RepositoryUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryBranch>v$(Version)</RepositoryBranch>
         <RepositoryType>git</RepositoryType>
