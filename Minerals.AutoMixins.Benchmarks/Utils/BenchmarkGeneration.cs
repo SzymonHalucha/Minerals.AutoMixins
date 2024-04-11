@@ -1,14 +1,18 @@
 namespace Minerals.AutoMixins.Benchmarks.Utils
 {
-    public readonly struct BenchmarkGeneration
+    public class BenchmarkGeneration
     {
-        public readonly GeneratorDriver Driver { get; }
-        public readonly Compilation Compilation { get; }
+        public GeneratorDriver StartingDriver { get; set; }
+        public GeneratorDriver CurrentDriver { get; set; }
+        public Compilation StartingCompilation { get; set; }
+        public Compilation CurrentCompilation { get; set; }
 
         public BenchmarkGeneration(GeneratorDriver driver, Compilation compilation)
         {
-            Driver = driver;
-            Compilation = compilation;
+            StartingDriver = driver;
+            CurrentDriver = driver;
+            StartingCompilation = compilation;
+            CurrentCompilation = compilation;
         }
     }
 }

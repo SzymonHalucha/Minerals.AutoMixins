@@ -4,7 +4,7 @@ namespace Minerals.AutoMixins.Benchmarks
     {
         public static void Main()
         {
-            BenchmarkRunner.Run<AddMixinGeneratorBenchmark>
+            BenchmarkRunner.Run<AddMixinGeneratorBenchmarks>
             (
                 DefaultConfig.Instance
                     .WithOrderer(new DefaultOrderer(SummaryOrderPolicy.FastestToSlowest))

@@ -55,7 +55,10 @@ namespace Minerals.AutoMixins.Utils
                 {
                     foreach (var item in list)
                     {
-                        usings.Add(item.ToString());
+                        if (item.GlobalKeyword.IsKind(SyntaxKind.None))
+                        {
+                            usings.Add(item.ToString());
+                        }
                     }
                 }
             }

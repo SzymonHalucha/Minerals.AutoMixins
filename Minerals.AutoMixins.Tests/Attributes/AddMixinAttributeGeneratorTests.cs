@@ -5,7 +5,13 @@ namespace Minerals.AutoMixins.Tests.Attributes
     {
         public AddMixinAttributeGeneratorTests()
         {
-            VerifyExtensions.Initialize();
+            var references = VerifyExtensions.GetAppReferences
+            (
+                typeof(object),
+                typeof(AddMixinAttributeGenerator),
+                typeof(Assembly)
+            );
+            VerifyExtensions.Initialize(references);
         }
 
         [TestMethod]

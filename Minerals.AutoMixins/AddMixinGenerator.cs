@@ -60,7 +60,7 @@ namespace Minerals.AutoMixins
         {
             foreach (var syntax in generates.Select(x => (TypeDeclarationSyntax)x.TargetNode))
             {
-                builder.WriteLine(@"// ").Write(syntax.Identifier.ValueText);
+                builder.WriteLine(@"// MixinType: ").Write(syntax.Identifier.ValueText);
                 foreach (var member in syntax.Members)
                 {
                     builder.WriteLine(member.ToString());

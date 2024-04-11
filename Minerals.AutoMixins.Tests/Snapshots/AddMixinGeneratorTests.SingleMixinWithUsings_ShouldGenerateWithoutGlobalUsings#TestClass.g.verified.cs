@@ -7,7 +7,7 @@
 using System;
 using Minerals.AutoMixins;
 
-namespace Minerals.Test2
+namespace Minerals.Test1
 {
     [global::System.Diagnostics.DebuggerNonUserCode]
     [global::System.Runtime.CompilerServices.CompilerGenerated]

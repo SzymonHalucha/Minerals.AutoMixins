@@ -50,7 +50,10 @@ namespace Minerals.AutoMixins.Utils
             {
                 moveNext = enumerator.MoveNext();
                 iterator(this, current, moveNext);
-                current = enumerator.Current;
+                if (moveNext)
+                {
+                    current = enumerator.Current;
+                }
             }
             return this;
         }
@@ -73,7 +76,10 @@ namespace Minerals.AutoMixins.Utils
             {
                 moveNext = enumerator.MoveNext();
                 iterator(this, current, moveNext);
-                current = enumerator.Current;
+                if (moveNext)
+                {
+                    current = enumerator.Current;
+                }
             }
             return this;
         }
@@ -114,65 +120,16 @@ namespace Minerals.AutoMixins.Utils
 
         public CodeBuilder WriteBlock(string text)
         {
-            OpenBlock();
-            AppendLine(text);
-            CloseBlock();
-            return this;
-        }
-
-        public CodeBuilder WriteBlock(string text, bool newLine)
-        {
-            OpenBlock();
-            AppendLine(text);
-            CloseBlock();
-            if (newLine)
+            foreach (var line in text.Split('\n'))
             {
-                _builder.AppendLine();
-            }
-            return this;
-        }
-
-        public CodeBuilder WriteBlock(string text, bool newLine, bool appendSemicolon)
-        {
-            OpenBlock();
-            AppendLine(text);
-            CloseBlock(appendSemicolon);
-            if (newLine)
-            {
-                _builder.AppendLine();
+                Append(line, true);
             }
             return this;
         }
 
         public CodeBuilder WriteBlock(Action<CodeBuilder> writer)
         {
-            OpenBlock();
             writer(this);
-            CloseBlock();
-            return this;
-        }
-
-        public CodeBuilder WriteBlock(Action<CodeBuilder> writer, bool newLine)
-        {
-            OpenBlock();
-            writer(this);
-            CloseBlock();
-            if (newLine)
-            {
-                _builder.AppendLine();
-            }
-            return this;
-        }
-
-        public CodeBuilder WriteBlock(Action<CodeBuilder> writer, bool newLine, bool appendSemicolon)
-        {
-            OpenBlock();
-            writer(this);
-            CloseBlock(appendSemicolon);
-            if (newLine)
-            {
-                _builder.AppendLine();
-            }
             return this;
         }
 
@@ -202,9 +159,9 @@ namespace Minerals.AutoMixins.Utils
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void Append(string text)
+        private void Append(string text, bool forceIndentation = false)
         {
-            AppendIndentation();
+            AppendIndentation(forceIndentation);
             _builder.Append(text);
         }
 
@@ -217,9 +174,9 @@ namespace Minerals.AutoMixins.Utils
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void AppendIndentation()
+        private void AppendIndentation(bool force = false)
         {
-            if (_builder.Length > 0 && _builder[_builder.Length - 1].Equals('\n'))
+            if (force || (_builder.Length > 0 && _builder[_builder.Length - 1].Equals('\n')))
             {
                 _builder.Append(' ', _indentationSize * _indentationLevel);
             }

@@ -5,7 +5,13 @@ namespace Minerals.AutoMixins.Tests
     {
         public AddMixinGeneratorTests()
         {
-            VerifyExtensions.Initialize();
+            var references = VerifyExtensions.GetAppReferences
+            (
+                typeof(object),
+                typeof(AddMixinAttributeGenerator),
+                typeof(Assembly)
+            );
+            VerifyExtensions.Initialize(references);
         }
 
         [TestMethod]
@@ -74,6 +80,47 @@ namespace Minerals.AutoMixins.Tests
 
             namespace Minerals.Test2
             {
+                [AddMixin(typeof(TestMixin))]
+                public partial class TestClass { }
+            }
+            """;
+            IIncrementalGenerator[] additional =
+            [
+                new GenerateMixinAttributeGenerator(),
+                new AddMixinAttributeGenerator()
+            ];
+            return this.VerifyIncrementalGenerators(source, new AddMixinGenerator(), additional);
+        }
+
+        [TestMethod]
+        public Task SingleMixinWithUsings_ShouldGenerateWithoutGlobalUsings()
+        {
+            const string source = """
+            global using System.Linq;
+            global using System.Collections;
+            using System;
+            using Minerals.AutoMixins;
+
+            namespace Minerals.Test1
+            {
+                [GenerateMixin]
+                public class TestMixin
+                {
+                    [Obsolete] public int Property1 { get; set; } = 1;
+                    public int Field1 = 1;
+                    private int _filed2 = 2;
+
+                    public int Method1(int arg0, int arg1)
+                    {
+                        return arg0 + arg1;
+                    }
+
+                    protected int Method2(int arg0, int arg1)
+                    {
+                        return arg0 - arg1;
+                    }
+                }
+
                 [AddMixin(typeof(TestMixin))]
                 public partial class TestClass { }
             }
