@@ -75,7 +75,9 @@
             var references = BenchmarkGenerationExtensions.GetAppReferences
             (
                 typeof(object),
-                typeof(GenerateMixinAttributeGenerator)
+                typeof(AddMixinAttributeGenerator),
+                typeof(AddMixinGenerator),
+                typeof(AddMixinObject)
             );
             Baseline = BenchmarkGenerationExtensions.CreateGeneration
             (
@@ -85,14 +87,12 @@
             AttributesGeneration = BenchmarkGenerationExtensions.CreateGeneration
             (
                 _withoutAttributes,
-                [new AddMixinAttributeGenerator(), new GenerateMixinAttributeGenerator()],
                 references
             );
             MixinsGeneration = BenchmarkGenerationExtensions.CreateGeneration
             (
                 _withAttributes,
                 new AddMixinGenerator(),
-                [new AddMixinAttributeGenerator(), new GenerateMixinAttributeGenerator()],
                 references
             );
             BaselineDouble = BenchmarkGenerationExtensions.CreateGeneration
@@ -104,7 +104,6 @@
             (
                 _withAttributes,
                 new AddMixinGenerator(),
-                [new AddMixinAttributeGenerator(), new GenerateMixinAttributeGenerator()],
                 references
             );
             BaselineDouble.RunAndSaveGeneration();
