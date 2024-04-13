@@ -6,7 +6,6 @@
 // </auto-generated>
 using System;
 using Minerals.AutoMixins;
-using Minerals.Test1;
 
 namespace Minerals.Test1
 {

@@ -1,11 +1,12 @@
 namespace Minerals.AutoMixins
 {
-    public readonly struct GenerateMixinObject
+    public readonly struct GenerateMixinObject : IEquatable<GenerateMixinObject>
     {
         public string Name { get; }
         public string Namespace { get; }
         public string[] Usings { get; }
-        public string[] Members { get; }
+        public MemberDeclarationSyntax[] Members { get; }
+        public ISymbol? Symbol { get; }
 
         public GenerateMixinObject(GeneratorAttributeSyntaxContext context)
         {
@@ -13,19 +14,31 @@ namespace Minerals.AutoMixins
             Namespace = GetNamespaceFrom(context.TargetNode);
             Usings = GetUsingsFrom(context.TargetNode);
             Members = GetMembersOf(context.TargetNode);
+            Symbol = GetSymbolOf(context);
         }
 
         public override bool Equals(object obj)
         {
             return obj is GenerateMixinObject genObj
             && genObj.Name.Equals(Name)
+            && genObj.Namespace.Equals(Namespace)
             && genObj.Usings.SequenceEqual(Usings)
-            && genObj.Members.SequenceEqual(Members);
+            && genObj.Members.SequenceEqual(Members)
+            && SymbolEqualityComparer.Default.Equals(genObj.Symbol, Symbol);
+        }
+
+        public bool Equals(GenerateMixinObject other)
+        {
+            return other.Name.Equals(Name)
+            && other.Namespace.Equals(Namespace)
+            && other.Usings.SequenceEqual(Usings)
+            && other.Members.SequenceEqual(Members)
+            && SymbolEqualityComparer.Default.Equals(other.Symbol, Symbol);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name, Usings, Members);
+            return HashCode.Combine(Name, Namespace, Usings, Members);
         }
 
         private static string GetNameOf(SyntaxNode node)
@@ -46,9 +59,14 @@ namespace Minerals.AutoMixins
             return usings != null ? usings.ToArray() : [];
         }
 
-        private static string[] GetMembersOf(SyntaxNode node)
+        private static MemberDeclarationSyntax[] GetMembersOf(SyntaxNode node)
         {
-            return ((TypeDeclarationSyntax)node).Members.Select(x => x.ToString()).ToArray();
+            return ((TypeDeclarationSyntax)node).Members.ToArray();
+        }
+
+        private ISymbol? GetSymbolOf(GeneratorAttributeSyntaxContext context)
+        {
+            return context.TargetSymbol;
         }
     }
 }

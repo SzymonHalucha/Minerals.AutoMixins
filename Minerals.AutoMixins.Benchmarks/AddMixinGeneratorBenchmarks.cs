@@ -13,7 +13,7 @@
 
         namespace Minerals.Test1
         {
-            public class TestMixin
+            public class TestMixin1
             {
                 [Obsolete] public int Property1 { get; set; } = 1;
                 public int Field1 = 1;
@@ -29,11 +29,30 @@
                     return arg0 - arg1;
                 }
             }
+
+            public class TestMixin2
+            {
+                [Obsolete] public int Property1_1 { get; set; } = 1;
+                public int Field1_1 = 1;
+                private int _filed2_1 = 2;
+
+                public int Method1_1(int arg0, int arg1)
+                {
+                    return arg0 + arg1;
+                }
+
+                protected int Method2_1(int arg0, int arg1)
+                {
+                    return arg0 - arg1;
+                }
+            }
         }
 
         namespace Minerals.Test2
         {
-            public partial class TestClass { }
+            public partial class TestClass1 { }
+
+            public partial class TestClass2 { }
         }
         """;
 
@@ -44,7 +63,7 @@
         namespace Minerals.Test1
         {
             [GenerateMixin]
-            public class TestMixin
+            public class TestMixin1
             {
                 [Obsolete] public int Property1 { get; set; } = 1;
                 public int Field1 = 1;
@@ -60,12 +79,33 @@
                     return arg0 - arg1;
                 }
             }
+
+            [GenerateMixin]
+            public class TestMixin2
+            {
+                [Obsolete] public int Property1_1 { get; set; } = 1;
+                public int Field1_1 = 1;
+                private int _filed2_1 = 2;
+
+                public int Method1_1(int arg0, int arg1)
+                {
+                    return arg0 + arg1;
+                }
+
+                protected int Method2_1(int arg0, int arg1)
+                {
+                    return arg0 - arg1;
+                }
+            }
         }
 
         namespace Minerals.Test2
         {
-            [AddMixin(typeof(TestMixin))]
-            public partial class TestClass { }
+            [AddMixin(typeof(TestMixin2))]
+            public partial class TestClass1 { }
+
+            [AddMixin(typeof(TestMixin1))]
+            public partial class TestClass2 { }
         }
         """;
 
@@ -87,12 +127,14 @@
             AttributesGeneration = BenchmarkGenerationExtensions.CreateGeneration
             (
                 _withoutAttributes,
+                [new AddMixinAttributeGenerator(), new GenerateMixinAttributeGenerator()],
                 references
             );
             MixinsGeneration = BenchmarkGenerationExtensions.CreateGeneration
             (
                 _withAttributes,
                 new AddMixinGenerator(),
+                [new AddMixinAttributeGenerator(), new GenerateMixinAttributeGenerator()],
                 references
             );
             BaselineDouble = BenchmarkGenerationExtensions.CreateGeneration
@@ -104,6 +146,7 @@
             (
                 _withAttributes,
                 new AddMixinGenerator(),
+                [new AddMixinAttributeGenerator(), new GenerateMixinAttributeGenerator()],
                 references
             );
             BaselineDouble.RunAndSaveGeneration();
@@ -127,7 +170,7 @@
         [Benchmark]
         public void SingleGeneration_FullMixin()
         {
-            MixinsGenerationDouble.RunGeneration();
+            MixinsGeneration.RunGeneration();
         }
 
         [Benchmark]

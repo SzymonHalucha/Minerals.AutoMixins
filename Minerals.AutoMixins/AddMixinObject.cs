@@ -1,12 +1,12 @@
 namespace Minerals.AutoMixins
 {
-    public readonly struct AddMixinObject
+    public readonly struct AddMixinObject : IEquatable<AddMixinObject>
     {
         public string[] Modifiers { get; }
         public string Name { get; }
         public string Base { get; }
         public string Namespace { get; }
-        public IEnumerable<ISymbol?> Mixins { get; }
+        public ISymbol?[] Mixins { get; }
 
         public AddMixinObject(GeneratorAttributeSyntaxContext context)
         {
@@ -24,12 +24,21 @@ namespace Minerals.AutoMixins
             && addObj.Name.Equals(Name)
             && addObj.Base.Equals(Base)
             && addObj.Namespace.Equals(Namespace)
-            && addObj.Mixins.SequenceEqual(Mixins, SymbolEqualityComparer.IncludeNullability);
+            && addObj.Mixins.SequenceEqual(Mixins, SymbolEqualityComparer.Default);
+        }
+
+        public bool Equals(AddMixinObject other)
+        {
+            return other.Modifiers.SequenceEqual(Modifiers)
+            && other.Name.Equals(Name)
+            && other.Base.Equals(Base)
+            && other.Namespace.Equals(Namespace)
+            && other.Mixins.SequenceEqual(Mixins, SymbolEqualityComparer.Default);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Modifiers, Name, Base, Namespace);
+            return HashCode.Combine(Modifiers, Name, Base, Namespace, Mixins);
         }
 
         private static string[] GetModifiersOf(SyntaxNode node)
@@ -52,9 +61,18 @@ namespace Minerals.AutoMixins
             return from.FirstAncestorOrSelf<NamespaceDeclarationSyntax>()?.Name.ToString() ?? string.Empty;
         }
 
-        private static IEnumerable<ISymbol?> GetMixinsOf(GeneratorAttributeSyntaxContext target)
+        private static ISymbol?[] GetMixinsOf(GeneratorAttributeSyntaxContext target)
         {
-            return target.Attributes.SelectMany(x => x.ConstructorArguments.Select(y => y.Type));
+            return target.Attributes.SelectMany(x =>
+            {
+                return x.ConstructorArguments.SelectMany(y =>
+                {
+                    return y.Values.Select(z =>
+                    {
+                        return z.Value as ISymbol;
+                    });
+                });
+            }).ToArray();
         }
     }
 }

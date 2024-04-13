@@ -51,48 +51,6 @@ namespace Minerals.AutoMixins.Tests
         }
 
         [TestMethod]
-        public Task SingleMixinWithNamespace_ShouldGenerate()
-        {
-            const string source = """
-            using System;
-            using Minerals.AutoMixins;
-
-            namespace Minerals.Test1
-            {
-                [GenerateMixin]
-                public class TestMixin
-                {
-                    [Obsolete] public int Property1 { get; set; } = 1;
-                    public int Field1 = 1;
-                    private int _filed2 = 2;
-
-                    public int Method1(int arg0, int arg1)
-                    {
-                        return arg0 + arg1;
-                    }
-
-                    protected int Method2(int arg0, int arg1)
-                    {
-                        return arg0 - arg1;
-                    }
-                }
-            }
-
-            namespace Minerals.Test2
-            {
-                [AddMixin(typeof(TestMixin))]
-                public partial class TestClass { }
-            }
-            """;
-            IIncrementalGenerator[] additional =
-            [
-                new GenerateMixinAttributeGenerator(),
-                new AddMixinAttributeGenerator()
-            ];
-            return this.VerifyIncrementalGenerators(source, new AddMixinGenerator(), additional);
-        }
-
-        [TestMethod]
         public Task SingleMixinWithUsings_ShouldGenerateWithoutGlobalUsings()
         {
             const string source = """
@@ -134,7 +92,7 @@ namespace Minerals.AutoMixins.Tests
         }
 
         [TestMethod]
-        public Task GenerateMultiMixin_ShouldGenerate()
+        public Task MultiMixins_ShouldGenerateAll()
         {
             const string source = """
             using System;
@@ -181,7 +139,7 @@ namespace Minerals.AutoMixins.Tests
 
             namespace Minerals.Test2
             {
-                [AddMixin(typeof(TestMixin1), typeof(TestMixin2))]
+                [AddMixin(typeof(Minerals.Test1.TestMixin1), typeof(Minerals.Test1.TestMixin2))]
                 public partial class TestClass { }
             }
             """;
@@ -194,7 +152,7 @@ namespace Minerals.AutoMixins.Tests
         }
 
         [TestMethod]
-        public Task GenerateAndAddMultiMixin_ShouldGenerate()
+        public Task MultiMixins_ShouldGenerateOnlySelected()
         {
             const string source = """
             using System;
@@ -241,10 +199,10 @@ namespace Minerals.AutoMixins.Tests
 
             namespace Minerals.Test2
             {
-                [AddMixin(typeof(TestMixin1), typeof(TestMixin2))]
+                [AddMixin(typeof(Minerals.Test1.TestMixin1))]
                 public partial class TestClass1 { }
 
-                [AddMixin(typeof(TestMixin1), typeof(TestMixin2))]
+                [AddMixin(typeof(Minerals.Test1.TestMixin2))]
                 public partial class TestClass2 { }
             }
             """;
