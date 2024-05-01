@@ -1,5 +1,9 @@
 # Minerals.AutoMixins
 
+![GitHub License](https://img.shields.io/github/license/SzymonHalucha/Minerals.AutoMixins?style=for-the-badge)
+![NuGet Version](https://img.shields.io/nuget/v/Minerals.AutoMixins?style=for-the-badge)
+![NuGet Downloads](https://img.shields.io/nuget/dt/Minerals.AutoMixins?style=for-the-badge)
+
 This NuGet package provides a capability to automatically generate a [mix-in](https://en.wikipedia.org/wiki/Mixin) design pattern for C# classes by using only one attribute. This allows you to easily extend the functionality of existing classes.
 
 ## Funkcje
