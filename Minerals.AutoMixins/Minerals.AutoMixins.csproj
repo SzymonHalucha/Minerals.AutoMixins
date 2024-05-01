@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>0.2.0</Version>
+        <Version>0.2.1</Version>
         <Title>AutoMixins</Title>
         <Authors>Szymon Hałucha</Authors>
         <Product>AutoMixins</Product>
@@ -25,7 +25,7 @@
         <PackageProjectUrl>https://github.com/SzymonHalucha/Minerals.AutoMixins</PackageProjectUrl>
         <PackageTags>mixin, design, pattern, generator, source, code, generation, attribute</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageReleaseNotes>Generator optimization and API changes</PackageReleaseNotes>
+        <PackageReleaseNotes>Fixed bug with the CodeBuilder enumeration methods</PackageReleaseNotes>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

@@ -43,6 +43,10 @@ namespace Minerals.AutoMixins.Utils
 
         public CodeBuilder WriteIteration(IEnumerable<string> lines, Action<CodeBuilder, string, bool> iterator)
         {
+            if (lines.Any() is false)
+            {
+                return this;
+            }
             var enumerator = lines.GetEnumerator();
             var moveNext = enumerator.MoveNext();
             var current = enumerator.Current;
@@ -69,6 +73,10 @@ namespace Minerals.AutoMixins.Utils
 
         public CodeBuilder WriteIteration(IReadOnlyCollection<string> lines, Action<CodeBuilder, string, bool> iterator)
         {
+            if (lines.Any() is false)
+            {
+                return this;
+            }
             var enumerator = lines.GetEnumerator();
             var moveNext = enumerator.MoveNext();
             var current = enumerator.Current;

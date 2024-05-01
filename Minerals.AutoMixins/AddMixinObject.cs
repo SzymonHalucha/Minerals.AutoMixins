@@ -58,7 +58,10 @@ namespace Minerals.AutoMixins
 
         private static string GetNamespaceFrom(SyntaxNode from)
         {
-            return from.FirstAncestorOrSelf<NamespaceDeclarationSyntax>()?.Name.ToString() ?? string.Empty;
+            var nameSyntax = from.FirstAncestorOrSelf<NamespaceDeclarationSyntax>()?.Name;
+            nameSyntax ??= ((FileScopedNamespaceDeclarationSyntax?)from.FirstAncestorOrSelf<CompilationUnitSyntax>()?
+                .ChildNodes().FirstOrDefault(x => x is FileScopedNamespaceDeclarationSyntax))?.Name;
+            return nameSyntax?.ToString() ?? string.Empty;
         }
 
         private static ISymbol?[] GetMixinsOf(GeneratorAttributeSyntaxContext target)
