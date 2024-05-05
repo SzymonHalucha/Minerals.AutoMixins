@@ -19,7 +19,6 @@ namespace Minerals.AutoMixins.Tests.Utils
             {
                 order = new DiffTool[] { DiffTool.VisualStudioCode, DiffTool.VisualStudio, DiffTool.Rider, DiffTool.Neovim, DiffTool.Vim };
             }
-
             if (!_isInitialized)
             {
                 DiffTools.UseOrder(order.ToArray());
