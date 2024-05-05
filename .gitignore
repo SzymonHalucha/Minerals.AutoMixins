@@ -484,4 +484,4 @@ $RECYCLE.BIN/
 # USER
 *.received.*
 !*.verified.*
-*/Snapshots/*
+*/Snapshots/*received.cs
