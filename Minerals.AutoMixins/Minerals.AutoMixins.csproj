@@ -54,6 +54,15 @@
         <PackageReference Include="Microsoft.CodeAnalysis" Version="4.*" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.*" PrivateAssets="all" />
         <PackageReference Update="NETStandard.Library" PrivateAssets="all" />
-    </ItemGroup>
 
+        <PackageReference Include="System.Text.Json" Version="8.*" PrivateAssets="all" GeneratePathProperty="true" />
+		<PackageReference Include="SourceGeneratorsAttributesLibrary" Version="1.*" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" />
+		<!-- <PackageReference Include="ThisAssembly" Version="1.4.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="ThisAssembly.Git" /> -->
+		<PackageReference Include="NuGetizer" />
+    </ItemGroup>
 </Project>

@@ -10,3 +10,5 @@ global using Microsoft.CodeAnalysis.Text;
 global using Microsoft.CodeAnalysis.CSharp;
 global using Microsoft.CodeAnalysis.CSharp.Syntax;
 global using Minerals.AutoMixins.Utils;
+
+global using System.IO;
