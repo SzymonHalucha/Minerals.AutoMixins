@@ -8,7 +8,7 @@
 
 This NuGet package provides a capability to automatically generate a [mix-in](https://en.wikipedia.org/wiki/Mixin) design pattern for C# classes by using only one attribute. This allows you to easily extend the functionality of existing classes.
 
-## Funkcje
+## Features
 
 - **Easy mix-in definition:** Mix-in object are defined by using the ```[GenerateMixin]``` attribute.
 - **Easy addition of mix-ins to a class:** To add a mix-in object to a class, use the ```[AddMixin(typeof(ExampleMixinClass))]``` attribute.
