@@ -1,3 +1,7 @@
+using System.Reflection;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis;
+
 namespace Minerals.AutoMixins.Benchmarks.Utils
 {
     public static class BenchmarkGenerationExtensions

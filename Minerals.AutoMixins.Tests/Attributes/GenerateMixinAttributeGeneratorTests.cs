@@ -1,3 +1,7 @@
+using System.Reflection;
+using Minerals.AutoMixins.Tests.Utils;
+using Minerals.AutoMixins.Attributes;
+
 namespace Minerals.AutoMixins.Tests.Attributes
 {
     [TestClass]

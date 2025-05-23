@@ -1,3 +1,6 @@
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis;
+
 namespace Minerals.AutoMixins
 {
     public readonly struct AddMixinObject : IEquatable<AddMixinObject>

@@ -1,3 +1,8 @@
+using System.Reflection;
+using Microsoft.CodeAnalysis;
+using Minerals.AutoMixins.Tests.Utils;
+using Minerals.AutoMixins.Attributes;
+
 namespace Minerals.AutoMixins.Tests
 {
     [TestClass]

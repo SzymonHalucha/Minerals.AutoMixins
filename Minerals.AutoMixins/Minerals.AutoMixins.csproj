@@ -2,21 +2,22 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <ImplicitUsings>disable</ImplicitUsings>
+        <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>12</LangVersion>
         <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
         <IsRoslynComponent>true</IsRoslynComponent>
-        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <RootNamespace>Minerals.AutoMixins</RootNamespace>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>0.2.1</Version>
+        <Version>0.2.2</Version>
         <Title>AutoMixins</Title>
         <Authors>Szymon Hałucha</Authors>
         <Product>AutoMixins</Product>
         <Description>Package for automatic mixin design pattern generation using incremental generator</Description>
-        <Copyright>Copyright © Szymon Hałucha 2024</Copyright>
+        <Copyright>Copyright © Szymon Hałucha 2025</Copyright>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -25,8 +26,7 @@
         <PackageProjectUrl>https://github.com/SzymonHalucha/Minerals.AutoMixins</PackageProjectUrl>
         <PackageTags>mixin, design, pattern, generator, source, code, generation, attribute</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageReleaseNotes>Fixed bug with the CodeBuilder enumeration methods</PackageReleaseNotes>
-        <IsPackable>true</IsPackable>
+        <PackageReleaseNotes>Updated dependencies</PackageReleaseNotes>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -51,8 +51,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis" Version="4.*" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.*" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.Bcl.HashCode" Version="6.0.0" PrivateAssets="all" />
+        <PackageReference Include="Minerals.CodeBuilder" Version="0.2.2" PrivateAssets="all" />
         <PackageReference Update="NETStandard.Library" PrivateAssets="all" />
     </ItemGroup>
 

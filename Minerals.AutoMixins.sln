@@ -1,13 +1,12 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.002.0
+VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minerals.AutoMixins", "Minerals.AutoMixins\Minerals.AutoMixins.csproj", "{DC8F0889-977B-45B1-8E95-A9127648599F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerals.AutoMixins", "Minerals.AutoMixins\Minerals.AutoMixins.csproj", "{19E6742A-C7A4-16CF-8962-D2E4C3BD94DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minerals.AutoMixins.Benchmarks", "Minerals.AutoMixins.Benchmarks\Minerals.AutoMixins.Benchmarks.csproj", "{6E21C6D1-64C0-44DD-8D00-925BC0F57022}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerals.AutoMixins.Benchmarks", "Minerals.AutoMixins.Benchmarks\Minerals.AutoMixins.Benchmarks.csproj", "{066CB4BC-4695-B37E-4ED9-DB151D94AC37}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minerals.AutoMixins.Tests", "Minerals.AutoMixins.Tests\Minerals.AutoMixins.Tests.csproj", "{67006947-2801-41E8-AC84-569BE80E6C08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerals.AutoMixins.Tests", "Minerals.AutoMixins.Tests\Minerals.AutoMixins.Tests.csproj", "{0EE43F6D-2DAA-C1F1-938D-F5470EC6BA18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +14,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC8F0889-977B-45B1-8E95-A9127648599F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC8F0889-977B-45B1-8E95-A9127648599F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC8F0889-977B-45B1-8E95-A9127648599F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC8F0889-977B-45B1-8E95-A9127648599F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E21C6D1-64C0-44DD-8D00-925BC0F57022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E21C6D1-64C0-44DD-8D00-925BC0F57022}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E21C6D1-64C0-44DD-8D00-925BC0F57022}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E21C6D1-64C0-44DD-8D00-925BC0F57022}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67006947-2801-41E8-AC84-569BE80E6C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67006947-2801-41E8-AC84-569BE80E6C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67006947-2801-41E8-AC84-569BE80E6C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67006947-2801-41E8-AC84-569BE80E6C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E6742A-C7A4-16CF-8962-D2E4C3BD94DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E6742A-C7A4-16CF-8962-D2E4C3BD94DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E6742A-C7A4-16CF-8962-D2E4C3BD94DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E6742A-C7A4-16CF-8962-D2E4C3BD94DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066CB4BC-4695-B37E-4ED9-DB151D94AC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066CB4BC-4695-B37E-4ED9-DB151D94AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066CB4BC-4695-B37E-4ED9-DB151D94AC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066CB4BC-4695-B37E-4ED9-DB151D94AC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE43F6D-2DAA-C1F1-938D-F5470EC6BA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE43F6D-2DAA-C1F1-938D-F5470EC6BA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE43F6D-2DAA-C1F1-938D-F5470EC6BA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE43F6D-2DAA-C1F1-938D-F5470EC6BA18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AAB43673-5C21-499B-AE36-7D87B46B3622}
+		SolutionGuid = {FE67C7A5-78D7-4161-9B39-38D01AC2687D}
 	EndGlobalSection
 EndGlobal

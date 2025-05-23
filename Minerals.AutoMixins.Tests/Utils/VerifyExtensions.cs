@@ -1,3 +1,8 @@
+using System.Reflection;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis;
+using DiffEngine;
+
 namespace Minerals.AutoMixins.Tests.Utils
 {
     public static class VerifyExtensions

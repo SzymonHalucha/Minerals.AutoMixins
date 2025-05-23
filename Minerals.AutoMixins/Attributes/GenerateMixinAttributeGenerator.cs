@@ -1,3 +1,8 @@
+using System.Reflection;
+using System.Text;
+using Microsoft.CodeAnalysis.Text;
+using Microsoft.CodeAnalysis;
+
 namespace Minerals.AutoMixins.Attributes
 {
     [Generator]

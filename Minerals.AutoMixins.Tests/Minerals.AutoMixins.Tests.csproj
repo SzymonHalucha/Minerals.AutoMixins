@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
-        <ImplicitUsings>disable</ImplicitUsings>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>12</LangVersion>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <Optimize>true</Optimize>
+        <RootNamespace>Minerals.AutoMixins.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,18 +15,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.*" />
-        <PackageReference Include="Microsoft.CodeAnalysis" Version="4.*" />
-        <PackageReference Include="Verify" Version="23.*" />
-        <PackageReference Include="Verify.MSTest" Version="23.*" />
-        <PackageReference Include="Verify.SourceGenerators" Version="2.*" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+        <PackageReference Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
+        <PackageReference Include="Minerals.CodeBuilder" Version="0.2.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="coverlet.collector" Version="6.*" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.*" />
-        <PackageReference Include="MSTest.TestAdapter" Version="3.*" />
-        <PackageReference Include="MSTest.TestFramework" Version="3.*" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
+        <PackageReference Include="MSTest" Version="3.8.3" />
+        <PackageReference Include="Verify.MSTest" Version="30.1.0" />
+        <PackageReference Include="Verify.SourceGenerators" Version="2.5.0" />
     </ItemGroup>
 
 </Project>

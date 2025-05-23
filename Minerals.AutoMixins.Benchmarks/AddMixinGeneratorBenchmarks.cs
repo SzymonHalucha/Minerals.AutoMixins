@@ -1,4 +1,8 @@
-﻿namespace Minerals.AutoMixins.Benchmarks
+﻿using BenchmarkDotNet.Attributes;
+using Minerals.AutoMixins.Benchmarks.Utils;
+using Minerals.AutoMixins.Attributes;
+
+namespace Minerals.AutoMixins.Benchmarks
 {
     public class AddMixinGeneratorBenchmarks
     {

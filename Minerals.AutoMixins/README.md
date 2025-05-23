@@ -16,7 +16,7 @@ Add the Minerals.AutoMixins nuget package to your C# project using the following
 ### 1. Project file definition
 
 ```xml
-<PackageReference Include="Minerals.AutoMixins" Version="0.2.*" />
+<PackageReference Include="Minerals.AutoMixins" Version="0.2.2" />
 ```
 
 ### 2. dotnet command
